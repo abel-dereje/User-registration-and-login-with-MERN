@@ -1,26 +1,60 @@
-import {useState} from 'react';
+import { useState } from "react";
+
 
 function Signup() {
-    return(
-      <div className="form">
-          <div className="form-body">
-              <div className="username">
-                  <label className="form__label" for="firstName">Name </label>
-                  <input className="form__input" type="text" id="firstName" placeholder="Name"/>
-              </div>
-              <div className="email">
-                  <label className="form__label" for="email">Email </label>
-                  <input  type="email" id="email" className="form__input" placeholder="Email"/>
-              </div>
-              <div className="password">
-                  <label className="form__label" for="password">Password </label>
-                  <input className="form__input" type="password"  id="password" placeholder="Password"/>
-              </div>
-          </div>
-          <div class="footer">
-              <button type="submit" class="btn">Signup</button>
-          </div>
-      </div>      
-    )       
-}
-export default Signup;
+
+    return (
+        <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
+            <div className="bg-white p-3 rounded w-25">
+                <h2>Register</h2>
+                <form>
+                <div className="mb-3">
+                    <label htmlFor="Name">
+                        <strong>Name</strong>
+                    </label>
+                    <input
+                        type="text"
+                        className="form-control rounded-0"
+                        placeholder="Enter name"
+                        name="name"
+                        autoComplete="off"
+                     />
+                    </div>
+                    <div className="mb-3">
+                    <label htmlFor="Email">
+                        <strong>Email</strong>
+                        </label>
+                    <input
+                        type="email"
+                        className="form-control rounded-0"
+                        placeholder="Enter email"
+                        name="email"
+                        autoComplete="off"
+                     />
+                    </div>
+                    <div className="mb-3">
+                    <label htmlFor="Password">
+                        <strong>Password</strong>
+                        </label>
+                    <input
+                        type="password"
+                        className="form-control rounded-0"
+                        placeholder="Enter password"
+                        name="password"
+                        autoComplete="off"
+                     />
+                    </div>
+                    <button type="submit" className="btn btn-primary w-100 rounded-0">
+                        Sign Up
+                    </button>
+                    <p className="forgot-password text-right">
+                    Already registered <a href="/sign-in">sign in?</a>
+                    </p>
+              </form>
+            </div>
+        </div>      
+    );
+  }
+
+
+  export default Signup;
