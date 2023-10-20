@@ -1,16 +1,21 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 
 function Signup() {
     const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         axios.post('http://localhost:3001/register', {name, email, password})
-        .then(result => console.log(result))
+        .then(result => {console.log(result)
+        navigate('/login')
+        })
         .catch(console.error(err))
     }
 
@@ -58,13 +63,14 @@ function Signup() {
                         onChange={(e) => setPassword(e.target.value)}
                      />
                     </div>
-                    <button type="submit" className="btn btn-primary w-100 rounded-0">
-                        Sign Up
+                    <button type="submit" className="btn btn-success w-100 rounded-0">
+                        Register
                     </button>
-                    <p className="forgot-password text-right">
-                    Already registered <a href="/Login">sign in?</a>
-                    </p>
-              </form>
+                    </form>
+                    <p>Already Have an Account</p>
+                    <Link to = "/login" className="btn btn-default border w-100 bg-light rounded-0">
+                        Login
+                    </Link>
             </div>
         </div>      
     );
